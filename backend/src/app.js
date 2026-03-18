@@ -6,18 +6,18 @@ import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
-import connectDB from './src/config/db.js';
-import errorHandler from './src/middleware/errorHandler.js';
+import connectDB from './config/db.js';
+import errorHandler from './middleware/errorHandler.js';
 
 // routers
-import productsRouter from './src/routes/products.js';
-import servicesRouter from './src/routes/services.js';
-import jobsRouter from './src/routes/jobs.js';
-import testimonialsRouter from './src/routes/testimonials.js';
-import enquiriesRouter from './src/routes/enquiries.js';
-import authRouter from './src/routes/auth.js';
-import sitemapRouter from './src/routes/sitemap.js';
-import i18nRouter from './src/routes/i18n.js';
+import productsRouter from './routes/products.js';
+import servicesRouter from './routes/services.js';
+import jobsRouter from './routes/jobs.js';
+import testimonialsRouter from './routes/testimonials.js';
+import enquiriesRouter from './routes/enquiries.js';
+import authRouter from './routes/auth.js';
+import sitemapRouter from './routes/sitemap.js';
+import i18nRouter from './routes/i18n.js';
 
 dotenv.config();
 
@@ -50,10 +50,10 @@ app.use('/api/enquiries', enquiriesRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/sitemap', sitemapRouter);
 app.use('/api/i18n', i18nRouter);
-app.use('/api/pages', (await import('./src/routes/pages.js')).default);
-import analyticsRouter from './src/routes/analytics.js';
+app.use('/api/pages', (await import('./routes/pages.js')).default);
+import analyticsRouter from './routes/analytics.js';
 app.use('/api/analytics', analyticsRouter);
-import filesRouter from './src/routes/files.js';
+import filesRouter from './routes/files.js';
 app.use('/api/files', filesRouter);
 
 // static assets
