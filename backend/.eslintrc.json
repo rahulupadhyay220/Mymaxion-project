@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": false,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 14,
+    "sourceType": "module"
+  },
+  "globals": {
+    "process": "readonly",
+    "describe": "readonly",
+    "it": "readonly",
+    "expect": "readonly",
+    "beforeAll": "readonly",
+    "afterAll": "readonly"
+  },
+  "rules": {
+    "no-undef": "off",
+    "no-unused-vars": ["warn"],
+    "import/no-unresolved": ["error"],
+    "semi": ["error", "always"]
+  }
+}

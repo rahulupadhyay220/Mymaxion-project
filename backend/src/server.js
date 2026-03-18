@@ -1,11 +1,21 @@
 /* eslint-disable no-undef */
-import app from './app.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const PORT = process.env.PORT || 4000;
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
 
-app.listen(PORT, () => {
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  return res.json('backend is running');
+});
+const PORT = process.env.PORT || 3000;
+
+app.listen(8080, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
